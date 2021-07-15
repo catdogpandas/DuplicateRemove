@@ -1,40 +1,37 @@
 doit()
-let baiduinputid = document.getElementById("su");
 let tmp1 = document.getElementById("content_left");
-// 观察者的选项(要观察哪些突变)
-var config = { attributes: true, childList: true, subtree: true };
 
-// 当观察到突变时执行的回调函数
-var callback = function(mutationsList) {
-    mutationsList.forEach(function(item,index){
-        if (item.type == 'childList') {
-            console.log('有节点发生改变，当前节点的内容是：');
-            console.log(item.target.innerHTML);
-        } else if (item.type == 'attributes') {
-            console.log('修改了'+item.attributeName+'属性');
+const targetNode = document.getElementById('wrapper_wrapper');
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true, subtree: true };
+
+// Callback function to execute when mutations are observed
+const callback = function(mutationsList, observer) {
+    // Use traditional 'for loops' for IE 11
+    for(const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            //console.log('A child node has been added or removed.');
+            doit();
         }
-    });
+    }
 };
 
-// 创建一个链接到回调函数的观察者实例
-var observer = new MutationObserver(callback);
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
 
-// 开始观察已配置突变的目标节点
-observer.observe(tmp1, config);
-baiduinputid.addEventListener("click",function(){
-  
-  console.log('123');
-  doit()
-},true)
- 
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);
 
-
-
+/*
+document.addEventListener("DOMSubtreeModified",function(){
+    doit()
+})
+*/
 function doit(){
     let tmp = document.getElementById("content_left");
     //tmp.removeChild(tmp.childNodes[1]);//可以这样删除
     
-
     let rawlist = [];
     let contentlist = [];
     for(let child = tmp.firstElementChild;child!=null;child=child.nextElementSibling){
