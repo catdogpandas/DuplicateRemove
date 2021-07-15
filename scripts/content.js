@@ -1,7 +1,39 @@
+doit()
+let baiduinputid = document.getElementById("su");
+let tmp1 = document.getElementById("content_left");
+// 观察者的选项(要观察哪些突变)
+var config = { attributes: true, childList: true, subtree: true };
 
-{
+// 当观察到突变时执行的回调函数
+var callback = function(mutationsList) {
+    mutationsList.forEach(function(item,index){
+        if (item.type == 'childList') {
+            console.log('有节点发生改变，当前节点的内容是：');
+            console.log(item.target.innerHTML);
+        } else if (item.type == 'attributes') {
+            console.log('修改了'+item.attributeName+'属性');
+        }
+    });
+};
+
+// 创建一个链接到回调函数的观察者实例
+var observer = new MutationObserver(callback);
+
+// 开始观察已配置突变的目标节点
+observer.observe(tmp1, config);
+baiduinputid.addEventListener("click",function(){
+  
+  console.log('123');
+  doit()
+},true)
+ 
+
+
+
+function doit(){
     let tmp = document.getElementById("content_left");
     //tmp.removeChild(tmp.childNodes[1]);//可以这样删除
+    
 
     let rawlist = [];
     let contentlist = [];

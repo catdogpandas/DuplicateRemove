@@ -1,25 +1,30 @@
 {
     "name": "RemoveDuplicate",
-    "description": "Build an Extension!",
+    "description": "Remove duplicata results from baidu.com",
     "version": "1.0",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "background": {
-        "service_worker": "background.js"
+        "scripts": [
+            "background.js"
+        ]
     },
     "content_scripts": [
         {
-          "matches": ["https://www.baidu.com/*"],
-          "run_at": "document_idle",
-          "js": ["/scripts/content.js"]
+            "matches": [
+                "https://*.baidu.com/*"
+            ],
+            "run_at": "document_idle",
+            "js": [
+                "/scripts/content.js"
+            ]
         }
     ],
     "permissions": [
         "storage",
         "activeTab",
-        "scripting",
         "tabs"
     ],
-    "action": {
+    "browser_action": {
         "default_popup": "/html/popup.html",
         "default_icon": {
             "16": "/images/get_started16.png",
@@ -28,7 +33,10 @@
             "128": "/images/get_started128.png"
         }
     },
-    "options_page": "/html/options.html",
+    "options_ui": {
+        "page": "/html/options.html",
+        "browser_style":true
+    },
     "icons": {
         "16": "/images/get_started16.png",
         "32": "/images/get_started32.png",
