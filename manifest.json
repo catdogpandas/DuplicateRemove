@@ -2,11 +2,11 @@
     "name": "RemoveDuplicate",
     "description": "Remove duplicata results from baidu.com",
     "version": "1.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "background": {
-        "scripts": [
+        "service_worker": 
             "background.js"
-        ]
+        
     },
     "content_scripts": [
         {
@@ -24,19 +24,14 @@
         "activeTab",
         "tabs"
     ],
-    "browser_action": {
-        "default_popup": "/html/popup.html",
+    "action": {
         "default_icon": {
             "16": "/images/icon16.png",
             "32": "/images/icon32.png",
             "48": "/images/icon48.png",
             "128": "/images/icon128.png"
         }
-    },
-    "options_ui": {
-        "page": "/html/options.html",
-        "browser_style":true
-    },
+    },   
     "icons": {
         "16": "/images/icon16.png",
         "32": "/images/icon32.png",
