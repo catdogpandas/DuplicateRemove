@@ -49,7 +49,7 @@ function doit(){
             if(contentlist[j]=="0")
                 continue;
                 
-            let res = lcs(contentlist[i],contentlist[j])/contentlist[j].length;
+            let res = lcs(contentlist[i],contentlist[j])/Math.min(contentlist[i].length, contentlist[j].length);
             if(res >= 0.9){
                 console.log(i,j,res);
                 //tmp.removeChild(tmp.childNodes[j+1]);
