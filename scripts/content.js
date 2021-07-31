@@ -30,6 +30,8 @@ document.addEventListener("DOMSubtreeModified",function(){
 */
 function doit(){
     let tmp = document.getElementById("content_left");
+    let content_right = document.getElementById("content_right")
+
     //tmp.removeChild(tmp.childNodes[1]);//可以这样删除
     
     let rawlist = [];
@@ -54,9 +56,11 @@ function doit(){
                 console.log(i,j,res);
                 //tmp.removeChild(tmp.childNodes[j+1]);
                 rawlist[j].remove();
+                content_right.appendChild(rawlist[j]);
             }
         }
     }
+    
     /*
     //import sjs from 'simhash-js';
     

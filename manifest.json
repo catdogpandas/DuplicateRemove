@@ -2,11 +2,11 @@
     "name": "RemoveDuplicate",
     "description": "Remove duplicate results from baidu.com",
     "version": "1.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "background": {
-        "scripts": [
+        "service_worker": 
             "background.js"
-        ]
+        
     },
     "content_scripts": [
         {
