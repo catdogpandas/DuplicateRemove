@@ -1,6 +1,6 @@
 {
     "name": "RemoveDuplicate",
-    "description": "Remove duplicata results from baidu.com",
+    "description": "Remove duplicate results from baidu.com",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
