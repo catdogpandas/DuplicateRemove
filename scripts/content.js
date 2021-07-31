@@ -57,6 +57,7 @@ function doit(){
             }
         }
     }
+    
     /*
     //import sjs from 'simhash-js';
     
