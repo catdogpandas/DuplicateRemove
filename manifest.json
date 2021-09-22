@@ -20,9 +20,7 @@
         }
     ],
     "permissions": [
-        "storage",
-        "activeTab",
-        "tabs"
+        "storage"
     ],
     "action": {
         "default_icon": {
