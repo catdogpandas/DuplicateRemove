@@ -33,6 +33,8 @@ function doit(){
     let content_right = document.getElementById("content_right")
 
     //tmp.removeChild(tmp.childNodes[1]);//可以这样删除
+    if(tmp==null)
+        return;
     
     let rawlist = [];
     let contentlist = [];
